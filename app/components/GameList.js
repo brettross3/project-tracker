@@ -9,6 +9,8 @@ const GameList = ({ games }) => {
       return a.name.localeCompare(b.name);
     } else if (sortBy === 'category') {
       return a.category.localeCompare(b.category);
+    } else if (sortBy === 'category') {
+        return a.platform.localeCompare(b.platform);
     }
  });
 
@@ -16,10 +18,11 @@ const GameList = ({ games }) => {
  <div>
      <h2 className="text-xl font-bold">Sort by:</h2>
      <div className="space-x-4">
-       <button onClick={() => setSortBy('name')} className="bg-orange-500 p-1 m-2 w-28" style={{backgroundColor: sortBy === 'name' ? 'orange' : 'darkorange'}}>Name</button>
-       <button onClick={() => setSortBy('category')} className="bg-orange-500 p-1 m-2 w-28" style={{backgroundColor: sortBy === 'category' ? 'orange' : 'darkorange'}}>Category</button>
+       <button onClick={() => setSortBy('name')} className="p-1 m-2 w-28 shadow-md rounded-md" style={{backgroundColor: sortBy === 'name' ? '#63d471' : '#7d8491'}}>Name</button>
+       <button onClick={() => setSortBy('category')} className="p-1 m-2 w-28 shadow-md rounded-md" style={{backgroundColor: sortBy === 'category' ? '#63d471' : '#7d8491'}}>Category</button>
+       <button onClick={() => setSortBy('platform')} className="p-1 m-2 w-28 shadow-md rounded-md" style={{backgroundColor: sortBy === 'platform' ? '#63d471' : '#7d8491'}}>Platform</button>
      </div>
-     <ul>
+     <ul className="gameBox max-w-md space-x-4 p-1 shadow-md rounded-md">
        {sortedGames.map(game => (
          <Game key={game.id} name={game.name} platform={game.platform} category={game.category} />
        ))}

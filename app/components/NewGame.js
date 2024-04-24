@@ -15,7 +15,7 @@ export default function NewGame({ onAddGame }) {
  };
 
     return (
-        <div className="max-w-md mx-auto p-6 bg-black shadow-md rounded-md">
+        <div className="newGameBox max-w-md mx-auto p-6 shadow-md rounded-md">
           <form onSubmit={handleSubmit}>
             {/* Name Field */}
             <div className="mb-4">
@@ -29,7 +29,8 @@ export default function NewGame({ onAddGame }) {
                 value={name}
                 onChange={(e) => setName(e.target.value)}
                 required
-                className="mt-1 p-2 w-full border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"
+                style={{ backgroundColor: '#ffffff' }}
+                className="mt-1 p-2 w-full border rounded-md text-black #ffffff focus:outline-none focus:ring focus:border-blue-300"
               />
             </div>
     
@@ -43,6 +44,7 @@ export default function NewGame({ onAddGame }) {
                 name="platform"
                 value={platform}
                 onChange={(e) => setPlatform(e.target.value)}
+                style={{ backgroundColor: '#ffffff' }}
                 className="mt-1 p-2 w-full border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"
                 required
               >
@@ -69,7 +71,8 @@ export default function NewGame({ onAddGame }) {
                 name="category"
                 value={category}
                 onChange={(e) => setCategory(e.target.value)}
-                className="mt-1 p-2 w-full border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"
+                style={{ backgroundColor: '#ffffff' }}
+                className="mt-1 p-2 w-full border rounded-md text-black focus:outline-none focus:ring focus:border-emerald-300"
                 required
               >
                 <option value="" disabled>Select a category</option>
@@ -86,7 +89,7 @@ export default function NewGame({ onAddGame }) {
             </div>
     
             {/* Submit Button */}
-            <button type="submit" className="bg-blue-500 text-black p-2 rounded-md">
+            <button type="submit" className="bg-emerald-300 text-black p-2 rounded-md">
               Submit
             </button>
           </form>

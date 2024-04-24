@@ -18,14 +18,11 @@ export default function Page() {
  };
 
  return (
-    <main className="container mx-auto px-4 py-8">
-      {/* Display the game count next to the Game List header */}
+  <main className="container mx-auto px-4 py-8">
       <h1 className="text-3xl font-bold mb-4">
-        Game List ({gameCount})
+        Game List: {gameCount === 0 ? '' : `${gameCount} ${gameCount === 1 ? 'title' : 'titles'}`}
       </h1>
-      {/* Render the NewGame component and pass the handleAddGame function as a prop */}
       <NewGame onAddGame={handleAddGame} />
-      {/* Render the GameList component and pass the games state as a prop */}
       <GameList games={games} />
     </main>
  );

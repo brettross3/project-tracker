@@ -89,8 +89,8 @@ export default function NewGame({ onAddGame }) {
             </div>
     
             {/* Submit Button */}
-            <button type="submit" className="bg-emerald-300 text-black p-2 rounded-md">
-              Submit
+            <button type="submit" className="bg-emerald-500 text-black p-3 rounded-md mx-auto">
+              Add Game
             </button>
           </form>
         </div>

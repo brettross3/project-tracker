@@ -16,21 +16,38 @@
   }
 }
 
+
 body {
   color: rgb(var(--foreground-rgb));
   background-color: white;
+  background-image: linear-gradient(to bottom, white, #63d471);
+  min-height: 100vh;
 }
 
 .newGameBox {
   background-color: #e8e9eb;
  }
 
+ .label, select {
+  font-family: Arial, sans-serif;
+ }
+
  .gameBox {
   background-color: #e8e9eb;
+  max-width: 28rem; /* max-w-md */
+  padding: 0.25rem; /* p-1 */
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06); /* shadow-md */
+  border-radius: 0.375rem; 
+  margin-top: 10px;
+  margin-bottom: 50px;
  }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+  .body-gradient {
+    background-image: linear-gradient(to bottom, white, #63d471);
+    min-height: 100vh;
+ }
 }

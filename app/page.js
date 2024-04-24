@@ -1,55 +1,32 @@
 "use client";
-import Image from "next/image";
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
+import NewGame from "./components/NewGame";
+import GameList from "./components/GameList";
 
-// Fetch function to get random games
-const getRandomGames = async () => {
- const response = await fetch("https://www.gamerpower.com/api/giveaways?type=game");
- const data = await response.json();
- return data.slice(0, 10); // Assuming the API returns more than 10 games, we take the first 10
-};
-
-// Fetch function to get games by platform
-const getGamesByPlatform = async (platform) => {
- const response = await fetch(`https://www.gamerpower.com/api/giveaways?platform=${platform}`);
- const data = await response.json();
- return data.slice(0, 10); // Again, taking the first 10 games
-};
-
-export default function Home() {
+export default function Page() {
+ // State to hold the list of games
  const [games, setGames] = useState([]);
- const [platform, setPlatform] = useState("");
-
- const loadRandomGames = async () => {
-    const games = await getRandomGames();
-    setGames(games);
- };
-
- const loadGamesByPlatform = async () => {
-    if (!platform) return;
-    const games = await getGamesByPlatform(platform);
-    setGames(games);
- };
+ // State to hold the count of games
+ const [gameCount, setGameCount] = useState(0);
 
  useEffect(() => {
-    loadRandomGames();
- }, []);
+    setGameCount(games.length);
+ }, [games]);
 
- useEffect(() => {
-    loadGamesByPlatform();
- }, [platform]);
+ const handleAddGame = (game) => {
+    setGames([...games, game]);
+ };
 
  return (
-    <div>
-      <h1>Random Games</h1>
-      <button onClick={() => setPlatform("steam")}>Steam</button>
-      <button onClick={() => setPlatform("ps5")}>PS5</button>
-      <button onClick={() => setPlatform("xbox-one")}>Xbox One</button>
-      <ul>
-        {games.map((game, index) => (
-          <li key={index}>{game.title}</li>
-        ))}
-      </ul>
-    </div>
+    <main className="container mx-auto px-4 py-8">
+      {/* Display the game count next to the Game List header */}
+      <h1 className="text-3xl font-bold mb-4">
+        Game List ({gameCount})
+      </h1>
+      {/* Render the NewGame component and pass the handleAddGame function as a prop */}
+      <NewGame onAddGame={handleAddGame} />
+      {/* Render the GameList component and pass the games state as a prop */}
+      <GameList games={games} />
+    </main>
  );
 }

@@ -1,11 +1,11 @@
 import React from "react";
 
-const Game = ({ name, platform, category }) => {
+const Game = ({ name, platform, category, style }) => {
  return (
-    <li className="border p-4 my-2">
+    <li className={style}>
       <p className="font-bold">{name}</p>
-      <p>Platform: {platform}</p>
-      <p>Category: {category}</p>
+      <p><span className="italic">Platform:</span> {platform}</p>
+      <p><span className="italic">Category:</span> {category}</p>
     </li>
  );
 };

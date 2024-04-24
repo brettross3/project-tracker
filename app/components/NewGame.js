@@ -46,7 +46,7 @@ export default function NewGame({ onAddGame }) {
                 className="mt-1 p-2 w-full border rounded-md text-black focus:outline-none focus:ring focus:border-blue-300"
                 required
               >
-                <option value="" disabled>Pick the Game's Platform</option>
+                <option value="" disabled>Pick a Platform</option>
                 <option value="PC">PC</option>
                 <option value="PS4">PS4</option>
                 <option value="Xbox One">Xbox One</option>
